@@ -10,6 +10,17 @@ export default function FoodMenu2() {
   const [activeCategory, setActiveCategory] = useState("Chicken");
   const [showAll, setShowAll] = useState(false);
 
+  // Map categories to images
+  const categoryImages = {
+    Chicken: "chicken.png",
+    "Mo:Mo": "momo.jpg",
+    Prawn: "prawn.jpg",
+    Burger: "burger.jpg",
+    Fish: "fish2.jpg",
+    "Hot Dog": "hot dog.jpg",
+    Cheese: "cheesee.jpg",
+  };
+
   const filteredTopItems = foodItems2.filter(
     (item) => item.category === activeCategory
   );
@@ -39,20 +50,33 @@ export default function FoodMenu2() {
     <div className="p-6 bg-gray-100 min-h-screen">
       <h1 className="text-3xl font-bold mb-2 text-gray-900">Chicken Burger House</h1>
       <p className="text-gray-700 mb-6">It's a Taste Revolution!</p>
-
-      {/* CATEGORY FILTER */}
-      <div className="flex gap-4 mb-6 text-lg font-semibold overflow-x-auto whitespace-nowrap">
-        {categories.map((category) => (
-          <span
-            key={category}
-            className={`pb-1 ${activeCategory === category ? "text-red-500 border-b-2 border-red-500" : ""}`}
-            onClick={() => setActiveCategory(category)}
-            style={{ cursor: "pointer" }}
-          >
-            {category}
-          </span>
-        ))}
+{/* CATEGORY FILTER WITH CLICKABLE IMAGES ONLY */}
+<div className="flex gap-3 sm:gap-4 mb-6 overflow-x-auto whitespace-nowrap px-2">
+  {categories.map((category) => (
+    <div
+      key={category}
+      className="flex flex-col items-center p-2 sm:p-3"
+    >
+      <div
+        onClick={() => setActiveCategory(category)}
+        className={`w-12 h-12 sm:w-16 sm:h-16 rounded-full overflow-hidden border-2 border-gray-300 mb-1 cursor-pointer ${
+          activeCategory === category ? "border-red-500" : ""
+        }`}
+      >
+        <img
+          src={categoryImages[category]}
+          alt={category}
+          className="w-full h-full object-cover"
+        />
       </div>
+      <span className="text-xs sm:text-sm font-semibold text-gray-900">
+        {category}
+      </span>
+    </div>
+  ))}
+</div>
+
+
 
       {/* TOP FILTERED GRID WITH + BUTTON */}
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-10">
@@ -87,7 +111,7 @@ export default function FoodMenu2() {
         ))}
       </div>
 
-      {/* FULL MENU SECTION - unchanged */}
+      {/* FULL MENU SECTION */}
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-xl font-bold text-gray-900">Menu</h2>
         <span
