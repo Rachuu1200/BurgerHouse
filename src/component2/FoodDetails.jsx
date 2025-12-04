@@ -58,7 +58,7 @@ export default function FoodDetails() {
 
         <div className="text-right">
           <p className="text-sm text-gray-700">Total Cost</p>
-          <p className="text-2xl font-bold text-gray-900">Rs {totalCost}.00</p>
+          <p className="text-2xl font-bold text-gray-900">Rs {totalCost}</p>
         </div>
       </div>
 
