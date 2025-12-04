@@ -48,7 +48,7 @@ export default function FoodMenu2() {
 
   return (
     <div className="p-6 bg-gray-100 min-h-screen">
-      <h1 className="text-3xl font-bold mb-2 text-gray-900">Chicken Burger House</h1>
+      <h1 className="text-3xl font-bold mb-2 text-gray-900">Chicken Burger House 🍗</h1>
       <p className="text-gray-700 mb-6">It's a Taste Revolution!</p>
 {/* CATEGORY FILTER WITH CLICKABLE IMAGES ONLY */}
 <div className="flex gap-3 sm:gap-4 mb-6 overflow-x-auto whitespace-nowrap px-2">
